@@ -4,10 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
+@Table(name = "papeis")
 @Data
 public class Papel implements GrantedAuthority {
     private static final long serialVersionUID = 1L;

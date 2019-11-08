@@ -17,7 +17,7 @@ public class Endereco {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "endereco_id")
+    @JoinColumn(name = "ordem_servico_id")
     private OrdemServico ordemServico;
 
     private String cidade;

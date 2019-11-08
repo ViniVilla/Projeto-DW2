@@ -25,8 +25,6 @@ create table ordem_servico (
     data_atribuicao date,
     data_finalizacao date
 );
-alter table ordem_servico add foreign keu (endereco_id) references endereco(id);
-
 
 drop table if exists endereco;
 create table endereco (
@@ -37,3 +35,4 @@ create table endereco (
     rua varchar(255) not null
 );
 alter table endereco add foreign key (ordem_servico_id) references ordem_servico(id);
+alter table ordem_servico add foreign key (endereco_id) references endereco(id);
