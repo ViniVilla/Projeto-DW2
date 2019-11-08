@@ -31,7 +31,9 @@ alter table ordem_servico add foreign keu (endereco_id) references endereco(id);
 drop table if exists endereco;
 create table endereco (
     id identity primary key,
+    ordem_servico_id bigint unique not null,
     cidade varchar(255) not null,
     bairro varchar(255) not null,
     rua varchar(255) not null
 );
+alter table endereco add foreign key (ordem_servico_id) references ordem_servico(id);
