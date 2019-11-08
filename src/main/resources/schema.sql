@@ -11,7 +11,7 @@ drop table if exists papeis;
 create table papeis (
 	id identity primary key,
 	usuario_id bigint unique,
-	papel varchar(20) unique not null
+	papel varchar(20) not null
 );
 alter table papeis add foreign key (usuario_id) references usuarios(id);
 

@@ -13,12 +13,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "usuarios")
 @Data
+@NoArgsConstructor
 public class Usuario implements UserDetails {
 
     @Id
@@ -33,6 +35,10 @@ public class Usuario implements UserDetails {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
     private List<Papel> papeis = new ArrayList<>();
+
+    public void addPapel(Papel papel){
+        this.papeis.add(papel);
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -6,11 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "papeis")
 @Data
+@NoArgsConstructor
 public class Papel implements GrantedAuthority {
     private static final long serialVersionUID = 1L;
 
@@ -19,6 +21,10 @@ public class Papel implements GrantedAuthority {
     private Long id;
 
     private String papel;
+
+    public Papel(String papel){
+        this.papel = papel;
+    }
 
     @Override
     public String getAuthority() {
