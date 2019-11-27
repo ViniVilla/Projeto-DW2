@@ -28,11 +28,11 @@ public class OrdemServico {
     private Endereco endereco;
 
     @CreatedDate
-    private LocalDate DataCriacao;
+    private LocalDate dataCriacao;
 
-    private LocalDate DataAtribuicao;
+    private LocalDate dataAtribuicao;
 
-    private LocalDate DataFinalizacao;
+    private LocalDate dataFinalizacao;
 
     @Override
     public String toString() {
@@ -40,9 +40,9 @@ public class OrdemServico {
                 + "\"id\":\"" + id + "\""
                 + ", \"plano\":\"" + plano + "\""
                 + ", \"endereco\":" + endereco
-                + ", \"DataCriacao\":" + DataCriacao
-                + ", \"DataAtribuicao\":" + DataAtribuicao
-                + ", \"DataFinalizacao\":" + DataFinalizacao
+                + ", \"DataCriacao\":" + dataCriacao
+                + ", \"DataAtribuicao\":" + dataAtribuicao
+                + ", \"DataFinalizacao\":" + dataFinalizacao
                 + "}}";
     }
 }
