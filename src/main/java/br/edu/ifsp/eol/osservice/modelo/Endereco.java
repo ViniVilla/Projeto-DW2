@@ -1,6 +1,7 @@
 package br.edu.ifsp.eol.osservice.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,10 +17,6 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "ordem_servico_id")
-    private OrdemServico ordemServico;
-
     private String cidade;
     private String bairro;
     private String rua;
@@ -28,7 +25,6 @@ public class Endereco {
     public String toString() {
         return "{\"Endereco\":{"
                 + "\"id\":\"" + id + "\""
-                + ", \"ordemServico\":" + ordemServico
                 + ", \"cidade\":\"" + cidade + "\""
                 + ", \"bairro\":\"" + bairro + "\""
                 + ", \"rua\":\"" + rua + "\""
