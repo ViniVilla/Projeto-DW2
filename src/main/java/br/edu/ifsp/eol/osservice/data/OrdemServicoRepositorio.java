@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface OrdemServicoRepositorio extends JpaRepository<OrdemServico, Long> {
 
-    @Query("SELECT o FROM OrdemServico o WHERE o.dataCriacao = null")
+    @Query("SELECT o FROM OrdemServico o WHERE o.dataAtribuicao = null")
     List<OrdemServico> findAllNotStarted();
 
 }
