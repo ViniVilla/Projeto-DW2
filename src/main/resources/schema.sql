@@ -11,7 +11,7 @@ create table usuarios (
 drop table if exists papeis;
 create table papeis (
 	id identity primary key,
-	usuario_id bigint unique,
+	usuario_id bigint,
 	papel varchar(20) not null
 );
 alter table papeis add foreign key (usuario_id) references usuarios(id);
@@ -20,6 +20,7 @@ alter table papeis add foreign key (usuario_id) references usuarios(id);
 drop table if exists ordem_servico;
 create table ordem_servico (
     id identity primary key,
+    usuario_id bigint not null,
     endereco_id bigint unique not null,
     plano varchar(25) not null,
     data_criacao date not null,
