@@ -1,14 +1,8 @@
 package br.edu.ifsp.eol.osservice.modelo;
 
 import java.time.LocalDate;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -26,6 +20,10 @@ public class OrdemServico {
     @OneToOne
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     @CreatedDate
     private LocalDate dataCriacao;
