@@ -4,7 +4,8 @@ create table usuarios (
 	username varchar(10) unique not null,
 	password varchar(100) not null,
 	nome varchar(40) not null,
-	email varchar(40) not null
+	email varchar(40) not null,
+	telefone varchar(40) not null
 );
 
 drop table if exists papeis;

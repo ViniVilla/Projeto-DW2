@@ -29,8 +29,10 @@ public class Usuario implements UserDetails {
 
     private String username;
     private String password;
+
     private String nome;
     private String email;
+    private String telefone;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
