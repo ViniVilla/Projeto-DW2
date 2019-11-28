@@ -12,7 +12,7 @@ public enum Plano {
         this.nome = nome;
     }
 
-    public String nome(){
+    public String getNome(){
         return nome;
     }
 }

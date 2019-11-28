@@ -35,6 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/ordem-servico")
                 .hasAuthority("ROLE_USER")
+                .antMatchers("/admin/**")
+                .hasAuthority("ROLE_ADMIN")
                 .antMatchers("/", "/**")
                 .permitAll()
                 .and()
