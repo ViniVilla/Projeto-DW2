@@ -21,7 +21,7 @@ public interface OrdemServicoRepositorio extends JpaRepository<OrdemServico, Lon
     List<OrdemServicoPorInstalador> findAllDelayedByInstalador(@Param(value = "data") LocalDate data);
 
     @Query("SELECT new br.edu.ifsp.eol.osservice.data.OrdemServicoPorInstalador(o.instalador, COUNT(o)) " +
-            "FROM OrdemServico o WHERE o.dentroPrazo = false " +
+            "FROM OrdemServico o WHERE o.dentroPrazo = true " +
             "GROUP BY o.usuario")
     List<OrdemServicoPorInstalador> findAllFinishedInTimeByInstalador();
 }

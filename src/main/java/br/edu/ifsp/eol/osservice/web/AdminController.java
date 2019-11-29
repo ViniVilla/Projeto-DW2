@@ -33,4 +33,22 @@ public class AdminController {
         return "os-atrasadas";
     }
 
+    @GetMapping("/instalador/atrasadas")
+    public String osAtrasadasInstaladores(Model model) {
+        LocalDate data = LocalDate.now().minusDays(5);
+
+        List<OrdemServicoPorInstalador> osInstalador = repoOs.findAllDelayedByInstalador(data);
+        model.addAttribute("osAtrasadasInstalador", osInstalador);
+
+        return "instalador-os-atrasadas";
+    }
+
+    @GetMapping("/instalador/finalizadas")
+    public String osNoPrazoInstaladores(Model model) {
+        List<OrdemServicoPorInstalador> osInstalador = repoOs.findAllFinishedInTimeByInstalador();
+        model.addAttribute("osFinalizadasInstalador", osInstalador);
+
+        return "instalador-os-finalizadas";
+    }
+
 }
