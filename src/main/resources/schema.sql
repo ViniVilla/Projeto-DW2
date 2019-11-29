@@ -22,10 +22,12 @@ create table ordem_servico (
     id identity primary key,
     usuario_id bigint not null,
     endereco_id bigint unique not null,
+    instalador_id bigint not null,
     plano varchar(25) not null,
     data_criacao date not null,
     data_atribuicao date,
-    data_finalizacao date
+    data_finalizacao date,
+    dentro_prazo boolean
 );
 
 drop table if exists endereco;

@@ -25,12 +25,18 @@ public class OrdemServico {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "instalador_id")
+    private Usuario instalador;
+
     @CreatedDate
     private LocalDate dataCriacao;
 
     private LocalDate dataAtribuicao;
 
     private LocalDate dataFinalizacao;
+
+    private Boolean dentroPrazo;
 
     @Override
     public String toString() {

@@ -1,5 +1,6 @@
 package br.edu.ifsp.eol.osservice.web;
 
+import br.edu.ifsp.eol.osservice.data.OrdemServicoPorInstalador;
 import br.edu.ifsp.eol.osservice.data.OrdemServicoRepositorio;
 import br.edu.ifsp.eol.osservice.modelo.OrdemServico;
 import java.time.LocalDate;
