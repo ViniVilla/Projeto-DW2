@@ -1,14 +1,8 @@
 package br.edu.ifsp.eol.osservice.modelo;
 
 import java.time.LocalDate;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -27,12 +21,22 @@ public class OrdemServico {
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "instalador_id")
+    private Usuario instalador;
+
     @CreatedDate
-    private LocalDate DataCriacao;
+    private LocalDate dataCriacao;
 
-    private LocalDate DataAtribuicao;
+    private LocalDate dataAtribuicao;
 
-    private LocalDate DataFinalizacao;
+    private LocalDate dataFinalizacao;
+
+    private Boolean dentroPrazo;
 
     @Override
     public String toString() {
@@ -40,9 +44,9 @@ public class OrdemServico {
                 + "\"id\":\"" + id + "\""
                 + ", \"plano\":\"" + plano + "\""
                 + ", \"endereco\":" + endereco
-                + ", \"DataCriacao\":" + DataCriacao
-                + ", \"DataAtribuicao\":" + DataAtribuicao
-                + ", \"DataFinalizacao\":" + DataFinalizacao
+                + ", \"DataCriacao\":" + dataCriacao
+                + ", \"DataAtribuicao\":" + dataAtribuicao
+                + ", \"DataFinalizacao\":" + dataFinalizacao
                 + "}}";
     }
 }

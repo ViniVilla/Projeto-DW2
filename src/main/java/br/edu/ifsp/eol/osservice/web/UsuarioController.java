@@ -30,6 +30,6 @@ public class UsuarioController {
         usuario.addPapel(new Papel("ROLE_USER"));
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         repo.save(usuario);
-        return "redirect:/login";
+        return "/home";
     }
 }
